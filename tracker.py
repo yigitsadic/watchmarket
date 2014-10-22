@@ -37,7 +37,7 @@ class Tracker:
         
         
         self.btcturk = Btcturk()
-        self.CHECK_TIME = 5
+        self.CHECK_TIME = 60
         self.HEADER_DICT = {
             'Volume': '24S HACIM (BTC)' ,
             'Last': 'SON ISLEM',
