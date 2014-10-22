@@ -22,7 +22,13 @@ track_market = Tracker()
 
 # or with options
 
-track_market = Tracker({'width': 35, 'align': 'c'}, ['Ask', 'Bid', 'Timestamp'])
+track_market = Tracker(options={
+	'width': 35, 
+	'align': 'c',
+	'check': 20 # seconds
+	},
+	columns=['Ask', 'Bid', 'Timestamp']
+)
 
 # and run it
 

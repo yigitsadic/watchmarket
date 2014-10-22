@@ -11,7 +11,7 @@ class Tracker:
     def __init__(self, 
                 options={
                     'width': 20,
-                    'align': 'c'
+                    'align': 'c',
                 },
                 columns=[
                     'Volume', 'Last', 'Timestamp',
@@ -34,10 +34,11 @@ class Tracker:
                 * Low
                 * Open
         """
-        
-        
-        self.btcturk = Btcturk()
-        self.CHECK_TIME = 60
+        self.COLUMNS    = columns
+        self.OPTIONS    = options        
+        self.btcturk    = Btcturk()
+        self.CHECK_TIME = self.OPTIONS.get('check', 60)
+
         self.HEADER_DICT = {
             'Volume': '24S HACIM (BTC)' ,
             'Last': 'SON ISLEM',
@@ -48,9 +49,8 @@ class Tracker:
             'Low': 'EN DUSUK',
             'Open': 'GUNUN ACILIS FIYATI'
         }
-        
-        self.COLUMNS = columns
-        self.OPTIONS = options
+
+
     
     def _create_table(self):
         self.data_table = Texttable(max_width=400)
@@ -94,8 +94,8 @@ class Tracker:
 if __name__ == '__main__':
     options = {
         'align': 'c',
-        'width': 20
+        'width': 20,
     }
     
-    btctracker = Tracker(options, ['Ask', 'Bid', 'Timestamp'])
+    btctracker = Tracker(options=options, columns=['Ask', 'Bid', 'Timestamp'])
     btctracker.run()
