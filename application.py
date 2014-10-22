@@ -30,7 +30,7 @@ class AK47:
         os.system('clear')
         from tracker import Tracker
         
-        tracker = Tracker()
+        tracker = Tracker({'align': 'c', 'width': 20})
         tracker.run()
     
     def _run_order_book(self):
